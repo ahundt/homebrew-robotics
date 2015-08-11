@@ -11,7 +11,8 @@ class CmakeBasis < Formula
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :recommended
-  depends_on :python => "sphinx" => :recommended
+  depends_on :python => :required
+  # todo: add sphinx python dependency
   #depends_on :x11 # if your formula requires any X11/XQuartz components
 
   # The optional devel block is only executed if the user passes `--devel`.
