@@ -14,7 +14,6 @@ class CmakeBasis < Formula
   depends_on :python => :required
   # todo: add sphinx python dependency
   #depends_on :x11 # if your formula requires any X11/XQuartz components
-  args = ""
 
   # The optional devel block is only executed if the user passes `--devel`.
   # Use this to specify a not-yet-released version of a software.
@@ -31,6 +30,7 @@ class CmakeBasis < Formula
   end
   
   def install
+    args = ""
     # ENV.deparallelize  # if your formula fails when building in parallel
     system "cmake", "-G", "Unix Makefiles", buildpath, *(std_cmake_args + args)
     system "make"
