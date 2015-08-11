@@ -30,9 +30,9 @@ class CmakeBasis < Formula
   end
   
   def install
-    args = ""
+    args = std_cmake_args
     # ENV.deparallelize  # if your formula fails when building in parallel
-    system "cmake", "-G", "Unix Makefiles", buildpath, *(std_cmake_args + args)
+    system "cmake", "-G", "Unix Makefiles", buildpath, *args
     system "make"
     system "make", "install"
   end
