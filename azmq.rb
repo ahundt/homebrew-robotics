@@ -5,8 +5,8 @@
 class Azmq < Formula
   desc "C++ language binding library integrating ZeroMQ with Boost Asio"
   homepage "https://github.com/zeromq/azmq"
-  url "https://github.com:zeromq/azmq.git", :using => :git
-  sha256 ""
+  head "https://github.com:zeromq/azmq.git"
+  #sha256 ""
 
   depends_on "cmake" => :build
   depends_on "boost"
