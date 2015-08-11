@@ -31,11 +31,9 @@ class CmakeBasis < Formula
   
   def install
     # ENV.deparallelize  # if your formula fails when building in parallel
-    system "mkdir", "build"
-    system "cd", "build"
-    system "cmake", "..", *std_cmake_args
+    system "cmake", "-G", "Unix Makefiles", buildpath, *(std_cmake_args + args)
     system "make"
-    system "make", "install" # if this fails, try separate make/make install steps
+    system "make", "install"
   end
  
 
