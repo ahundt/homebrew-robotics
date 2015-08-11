@@ -5,7 +5,7 @@
 class Azmq < Formula
   desc "C++ language binding library integrating ZeroMQ with Boost Asio"
   homepage "https://github.com/zeromq/azmq"
-  head "https://github.com:zeromq/azmq.git"
+  head "https://github.com/zeromq/azmq.git"
   version "0.01"
   #sha256 ""
 
