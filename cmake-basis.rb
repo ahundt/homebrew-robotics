@@ -18,8 +18,14 @@ class CmakeBasis < Formula
   # Use this to specify a not-yet-released version of a software.
   devel do
 
-    url "https://example.com/repo.git", :using => :git, :branch => "develop"
+    url "https://github.com/schuhschuh/cmake-basis.git", :using => :git, :branch => "develop"
 
+  end
+  
+  head do
+
+    url "https://github.com/schuhschuh/cmake-basis.git", :using => :git, :branch => "master"
+    
   end
   
   def install
