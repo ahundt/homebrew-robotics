@@ -22,22 +22,20 @@ class CmakeBasis < Formula
     url "https://github.com/schuhschuh/cmake-basis.git", :using => :git, :branch => "develop"
 
   end
-  
+
   head do
 
     url "https://github.com/schuhschuh/cmake-basis.git", :using => :git, :branch => "master"
-    
-  end
-  
-  def install
-    args = std_cmake_args
-    # ENV.deparallelize  # if your formula fails when building in parallel
-    system "cmake", "-G", "Unix Makefiles", buildpath, *args
-    system "make"
-    system "make", "install"
-  end
- 
 
+  end
+
+  def install
+    mkdir "build" do
+      system "cmake", "-G", "Unix Makefiles", "..", *std_cmake_args
+      system "make"
+      system "make", "install"
+   end
+  end
 
   test do
     # `test do` will create, run in and delete a temporary directory.
