@@ -2,7 +2,7 @@
 #                /usr/local/Library/Contributions/example-formula.rb
 # PLEASE REMOVE ALL GENERATED COMMENTS BEFORE SUBMITTING YOUR PULL REQUEST!
 
-class CisstNetlib < Formula
+class Cisstnetlib < Formula
   desc "cisstNetlib wraps numerical routines found on http://www.netlib.org"
   homepage "https://github.com/jhu-cisst/cisstNetlib"
   head "https://github.com/jhu-cisst/cisstNetlib.git"
