@@ -28,7 +28,7 @@ class Cisst < Formula
       -DCISST_HAS_IOS=OFF
       -DCISST_HAS_JSON=OFF
       -DCISST_HAS_QT4=OFF
-      -DCISST_MTS_HAS_ICE =OFF
+      -DCISST_MTS_HAS_ICE=OFF
       -DCISST_USE_EXTERNAL=OFF
       -DCISST_XML_LIB=LibXml2
       -DCISST_cisst3DUserInterface=OFF
