@@ -2,7 +2,7 @@
 #                /usr/local/Library/Contributions/example-formula.rb
 # PLEASE REMOVE ALL GENERATED COMMENTS BEFORE SUBMITTING YOUR PULL REQUEST!
 
-class Cisstnetlib < Formula
+class Cisst < Formula
   desc "cisst combines robotics, stereo vision, intraoperative imaging, and related infrastructure"
   homepage "https://github.com/jhu-cisst/cisst"
   url "https://github.com/jhu-cisst/cisst.git", :tag => "1.0.4"
