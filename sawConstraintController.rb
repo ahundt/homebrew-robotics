@@ -2,7 +2,7 @@
 #                /usr/local/Library/Contributions/example-formula.rb
 # PLEASE REMOVE ALL GENERATED COMMENTS BEFORE SUBMITTING YOUR PULL REQUEST!
 
-class SawConstraintController < Formula
+class Sawconstraintcontroller < Formula
   desc "sawConstraintController is a cisst saw component that performs constrained optimization to plan inverse kinematics for a robot arm"
   homepage "https://github.com/jhu-saw/sawConstraintController"
   url "https://github.com/jhu-saw/sawConstraintController.git", :tag => "1.0.1"
