@@ -10,15 +10,23 @@ class Sawconstraintcontroller < Formula
   version "1.0.1"
   #sha256 ""
 
+  option "with-debug","build library with debug symbols enabled"
   depends_on "cmake" => :build
   depends_on "cisst" # may currently actually depend on cisst devel/HEAD version
   depends_on "cisstnetlib"
 
+
+  cmake_args = std_cmake_args
+  if build.with? "debug"
+    cmake_args << "-DCMAKE_BUILD_TYPE=Debug"
+  else
+    cmake_args << "-DCMAKE_BUILD_TYPE=Release"
+  end
+
   def install
     # ENV.deparallelize  # if your formula fails when building in parallel
-    args = std_cmake_args
     
-    system "cmake", ".", *args
+    system "cmake", ".", *cmake_args
     system "make", "install" # if this fails, try separate make/make install steps
   end
 

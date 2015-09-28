@@ -9,16 +9,23 @@ class Cisstnetlib < Formula
   version "0.01"
   #sha256 ""
 
+  option "with-debug","build library with debug symbols enabled"
   depends_on "cmake" => :build
   depends_on :fortran
 
   def install
     # ENV.deparallelize  # if your formula fails when building in parallel
-    args = std_cmake_args + %W[
+    cmake_args = std_cmake_args + %W[
        -DCISSTNETLIB_LANGUAGE=C
     ]
+
+    if build.with? "debug"
+      cmake_args << "-DCMAKE_BUILD_TYPE=Debug"
+    else
+      cmake_args << "-DCMAKE_BUILD_TYPE=Release"
+    end
     
-    system "cmake", ".", *args
+    system "cmake", ".", *cmake_args
     system "make", "install" # if this fails, try separate make/make install steps
   end
 

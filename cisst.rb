@@ -10,6 +10,7 @@ class Cisst < Formula
   version "1.0.4"
   #sha256 ""
 
+  option "with-debug","build library with debug symbols enabled"
   depends_on "cmake" => :build
   depends_on "cisstnetlib" => :recommended
   depends_on "libxml2" => :recommended
@@ -20,7 +21,7 @@ class Cisst < Formula
 
   def install
     # ENV.deparallelize  # if your formula fails when building in parallel
-    args = std_cmake_args + %W[
+    cmake_args = std_cmake_args + %W[
       -DCISST_BUILD_EXAMPLES=OFF
       -DCISST_BUILD_SHARED_LIBS=OFF
       -DCISST_BUILD_TESTS=OFF
@@ -43,8 +44,14 @@ class Cisst < Formula
       -DCISST_cisstStereoVision=OFF
       -DCISST_cisstVector=ON
     ]
+
+    if build.with? "debug"
+      cmake_args << "-DCMAKE_BUILD_TYPE=Debug"
+    else
+      cmake_args << "-DCMAKE_BUILD_TYPE=Release"
+    end
     
-    system "cmake", ".", *args
+    system "cmake", ".", *cmake_args
     system "make", "install" # if this fails, try separate make/make install steps
   end
 
