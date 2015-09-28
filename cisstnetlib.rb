@@ -15,7 +15,7 @@ class Cisstnetlib < Formula
   def install
     # ENV.deparallelize  # if your formula fails when building in parallel
     args = std_cmake_args + %W[
-       -DCISSTNETLIB_LANGUAGE=Fortran
+       -DCISSTNETLIB_LANGUAGE=C
     ]
     
     system "cmake", ".", *args
