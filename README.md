@@ -67,3 +67,12 @@ cd ~/source/vagrant
 vagrant init ubuntu
 
 ```
+
+
+##### Using the latest source with debugging enabled
+
+Below is an example of installing the latest cisstnetlib devel branch with debugging symbols enabled.
+
+```bash
+brew install --HEAD --cc=clang --build-from-source --with-debug -vd cisstnetlib
+```
