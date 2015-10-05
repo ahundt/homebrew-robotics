@@ -15,17 +15,15 @@ class Sawconstraintcontroller < Formula
   depends_on "cisst" # may currently actually depend on cisst devel/HEAD version
   depends_on "cisstnetlib"
 
-
-  cmake_args = std_cmake_args
-  if build.with? "debug"
-    cmake_args << "-DCMAKE_BUILD_TYPE=Debug"
-  else
-    cmake_args << "-DCMAKE_BUILD_TYPE=Release"
-  end
-
   def install
     # ENV.deparallelize  # if your formula fails when building in parallel
-    
+    cmake_args = std_cmake_args
+    if build.with? "debug"
+      cmake_args << "-DCMAKE_BUILD_TYPE=Debug"
+    else
+      cmake_args << "-DCMAKE_BUILD_TYPE=Release"
+    end
+
     system "cmake", ".", *cmake_args
     system "make", "install" # if this fails, try separate make/make install steps
   end
