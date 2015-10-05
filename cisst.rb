@@ -43,6 +43,8 @@ class Cisst < Formula
       -DCISST_cisstRobot=ON
       -DCISST_cisstStereoVision=OFF
       -DCISST_cisstVector=ON
+      -DFORCE_CISSTNETLIB_CONFIG=ON
+      -DCisstNetlib_DIR=#{Formula["cisstnetlib"].opt_prefix}/cmake
     ]
 
     if build.with? "debug"
@@ -50,7 +52,7 @@ class Cisst < Formula
     else
       cmake_args << "-DCMAKE_BUILD_TYPE=Release"
     end
-    
+
     system "cmake", ".", *cmake_args
     system "make", "install" # if this fails, try separate make/make install steps
   end
