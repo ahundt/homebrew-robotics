@@ -14,7 +14,7 @@ class CmakeBasis < Formula
   depends_on "cmake" => :required if !build.with?('docs')
   depends_on "doxygen" => :recommended
   depends_on :python => :required
-  depends_on :jython => :optional
+  #depends_on :jython => :optional
   # todo: add sphinx python dependency
   #depends_on :x11 # if your formula requires any X11/XQuartz components
 
@@ -59,11 +59,11 @@ class CmakeBasis < Formula
   else
     cmake_args << "-DBUILD_BASIS_UTILITIES_FOR_PYTHON=OFF"
   end
-  if build.with? "jython"
-    cmake_args << "-DUSE_JythonInterp=ON"
-  else
+  #if build.with? "jython"
+  #  cmake_args << "-DUSE_JythonInterp=ON"
+  #else
     cmake_args << "-DUSE_JythonInterp=OFF"
-  end
+    #end
   if build.with? "project-tool"
     cmake_args << "-DBUILD_PROJECT_TOOL=ON"
   else
