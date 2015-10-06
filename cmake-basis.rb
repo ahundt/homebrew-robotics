@@ -1,17 +1,20 @@
-# Documentation: https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/Formula-Cookbook.md
-#                /usr/local/Library/Contributions/example-formula.rb
-# PLEASE REMOVE ALL GENERATED COMMENTS BEFORE SUBMITTING YOUR PULL REQUEST!
-
 class CmakeBasis < Formula
   desc "cmake build and installer generation tools"
   homepage "https://github.com/schuhschuh/cmake-basis"
-  url "https://github.com/schuhschuh/cmake-basis.git", :using => :git, :tag => "v3.1.0"
-  version "3.1"
+  url "http://schuhschuh.github.io/cmake-basis/", :using => :git, :tag => "v3.2.0"
+  version "3.2"
   #sha256 ""
 
-  depends_on "cmake" => :build
+  option "without-project-tool","Don't include the app 'basisproject' which helps generate and update projects"
+  option "without-docs", "Don't build man pages"
+  option "with-perl", "Include the perl module"
+  option "with-perl-utilities", "Include perl standardized command line utilities"
+  option "with-python-utilities", "Include python standardized command line utilities"
+  depends_on "cmake" => ['docs'] if  build.with?('docs')
+  depends_on "cmake" => :required if !build.with?('docs')
   depends_on "doxygen" => :recommended
   depends_on :python => :required
+  depends_on :jython => :optional
   # todo: add sphinx python dependency
   #depends_on :x11 # if your formula requires any X11/XQuartz components
 
@@ -29,24 +32,53 @@ class CmakeBasis < Formula
 
   end
 
+  cmake_args = std_cmake_args
+  cmake_args << "-DBUILD_DOCUMENTATION=OFF"
+  if build.with? "docs"
+    cmake_args << "-DUSE_Sphinx=ON"
+  else
+    cmake_args << "-DUSE_Sphinx=OFF"
+  end
+  if build.with? "perl"
+    cmake_args << "-DUSE_Perl=ON"
+  else
+    cmake_args << "-DUSE_Perl=OFF"
+  end
+  if build.with? "perl-utilities"
+    cmake_args << "-DBUILD_BASIS_UTILITIES_FOR_PERL=ON -DUSE_Perl=ON"
+  else
+    cmake_args << "-DBUILD_BASIS_UTILITIES_FOR_PERL=OFF"
+  end
+  if build.with? "python"
+    cmake_args << "-DUSE_PythonInterp=ON"
+  else
+    cmake_args << "-DUSE_PythonInterp=OFF"
+  end
+  if build.with? "python-utilities"
+    cmake_args << "-DBUILD_BASIS_UTILITIES_FOR_PYTHON=ON -DUSE_PythonInterp=ON"
+  else
+    cmake_args << "-DBUILD_BASIS_UTILITIES_FOR_PYTHON=OFF"
+  end
+  if build.with? "jython"
+    cmake_args << "-DUSE_JythonInterp=ON"
+  else
+    cmake_args << "-DUSE_JythonInterp=OFF"
+  end
+  if build.with? "project-tool"
+    cmake_args << "-DBUILD_PROJECT_TOOL=ON"
+  else
+    cmake_args << "-DBUILD_PROJECT_TOOL=OFF"
+  end
+
   def install
     mkdir "build" do
-      system "cmake", "-G", "Unix Makefiles", "..", *std_cmake_args
+      system "cmake", "-G", "Unix Makefiles", "..", *cmake_args
       system "make"
       system "make", "install"
    end
   end
 
   test do
-    # `test do` will create, run in and delete a temporary directory.
-    #
-    # This test will fail and we won't accept that! It's enough to just replace
-    # "false" with the main program this formula installs, but it'd be nice if you
-    # were more thorough. Run the test with `brew test cmake-basis`. Options passed
-    # to `brew install` such as `--HEAD` also need to be provided to `brew test`.
-    #
-    # The installed folder is not in the path, so use the entire path to any
-    # executables being tested: `system "#{bin}/program", "do", "something"`.
     system "false"
   end
 end
