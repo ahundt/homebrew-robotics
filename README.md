@@ -32,17 +32,19 @@ brew install Caskroom/cask/vagrant
 
 ## Step by Step Setup for OS X and Linux
 
-2. Setup brew for OS X or Linux
-    - [Linuxbrew setup instructions](https://github.com/Homebrew/linuxbrew/wiki/Standalone-Installation), linuxbrew-standalone.sh is also provided in this repository, simply download it and run `sh linuxbrew-standalone.sh`
-    - [Homebrew OS X setup instructions](http://brew.sh/)
-3. Check that it is setup correctly `~/.linuxbrew` on linux, `/usr/local` on OS X (look for `usr/local/Cellar`).
-4. Install [Homebrew Cask](http://caskroom.io/)
+1. Setup brew for OS X or Linux
+    - [Homebrew OS X setup instructions](http://brew.sh/) or paste `ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"` into the terminal
+    - [Linuxbrew setup instructions](https://github.com/Homebrew/linuxbrew/wiki/Standalone-Installation), or paste `bash <(curl -fsSL https://raw.githubusercontent.com/ahundt/homebrew-robotics/master/linuxbrew-standalone.sh)` into the terminal
+2. Linux only - add linuxbrew to `~/.bashrc`, paste `echo 'prefix=~/.linuxbrew;PATH="$prefix/bin:$prefix/sbin:$PATH" # give linuxbrew priority, see https://github.com/Homebrew/linuxbrew/' >> ~/.bashrc; source ~/.bashrc` into terminal.
+3. Check that it is setup correctly `brew help` should output the homebrew help.
+4. OS X only - install [Homebrew Cask](http://caskroom.io/) `brew install caskroom/cask/brew-cask`
 5. Run `brew tap homebrew/science`, [homebrew-science](http://brew.sh/homebrew-science/) contains many scientific libraries, such as OpenCV and pcl
 6. Run `brew tap ahundt/robotics` to load this set of package formulas.
+7. Install the libraries you want to use, for example ``
 7. Done!
 
 
-Note that most of these forumulas need to be installed as HEAD, because there haven't been releases yet. Here is how to do it:
+**IMPORTANT:** most of these forumulae need to be installed as HEAD, because there haven't been releases yet. Here is how to do it:
 
 `brew install sawconstraintcontroller --HEAD`
 
