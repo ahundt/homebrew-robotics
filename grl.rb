@@ -24,12 +24,6 @@ class Grl < Formula
   depends_on "cisst" => :recommended
 
 
-  devel do
-
-    url "git@github.com:ahundt/grl.git", :using => :git, :branch => "develop"
-
-  end
-
   head do
 
     url "git@github.com:ahundt/grl.git", :using => :git, :branch => "master"
