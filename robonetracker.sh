@@ -5,7 +5,7 @@
 #
 # 
 # One step setup command for robonetracker:
-# source <(curl -fsSL https://raw.githubusercontent.com/ahundt/homebrew-robotics/master/robonetracker.sh)
+# bash <(curl -fsSL https://raw.githubusercontent.com/ahundt/homebrew-robotics/master/robonetracker.sh)
 
 echo ""
 echo "##############################################################################################"
@@ -23,7 +23,7 @@ set -x
 
 # source: https://gist.github.com/phatblat/1713458
 # Save script's current directory
-DIR="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+DIR=$(pwd)
 
 #
 # Check if Homebrew is installed
