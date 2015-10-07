@@ -25,11 +25,15 @@ class Grl < Formula
 
 
   devel do
+
     url "git@github.com:ahundt/grl.git", :using => :git, :branch => "develop"
+
   end
 
   head do
+
     url "git@github.com:ahundt/grl.git", :using => :git, :branch => "master"
+
   end
 
   def install
