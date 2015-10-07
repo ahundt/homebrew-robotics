@@ -33,8 +33,8 @@ brew install Caskroom/cask/vagrant
 ## Step by Step Setup for OS X and Linux
 
 2. Setup brew for OS X or Linux
- .  - [Linuxbrew setup instructions](https://github.com/Homebrew/linuxbrew/wiki/Standalone-Installation)
- .  - [Homebrew OS X setup instructions](http://brew.sh/)
+    - [Linuxbrew setup instructions](https://github.com/Homebrew/linuxbrew/wiki/Standalone-Installation), linuxbrew-standalone.sh is also provided in this repository, simply download it and run `sh linuxbrew-standalone.sh`
+    - [Homebrew OS X setup instructions](http://brew.sh/)
 3. Check that it is setup correctly `~/.linuxbrew` on linux, `/usr/local` on OS X (look for `usr/local/Cellar`).
 4. Install [Homebrew Cask](http://caskroom.io/)
 5. Run `brew tap homebrew/science`, [homebrew-science](http://brew.sh/homebrew-science/) contains many scientific libraries, such as OpenCV and pcl
