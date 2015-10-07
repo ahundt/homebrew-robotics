@@ -24,7 +24,7 @@ DIR="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 #
 # Check if Homebrew is installed
 #
-which -s brew
+which brew
 if [[ $? != 0 ]] ; then
 
     if [[ "$OSTYPE" == "linux-gnu" ]]; then
