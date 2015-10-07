@@ -7,8 +7,12 @@
 # One step setup command for robonetracker:
 # source <(curl -fsSL https://raw.githubusercontent.com/ahundt/homebrew-robotics/master/robonetracker.sh)
 
-echo "Make sure you have access to https://github.com/ahundt/robonetracker"
-echo "Also, know your github username and password, if you don't you'll have to finish manually!"
+echo ""
+echo "##############################################################################################"
+echo "# Make sure you have access to https://github.com/ahundt/robonetracker                       #"
+echo "# Also, know your github username and password, if you don't you'll have to finish manually! #"
+echo "##############################################################################################"
+echo ""
 
 
 # stop on errors
