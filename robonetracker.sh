@@ -1,4 +1,5 @@
-# /bin/bash
+#!/bin/bash
+
 # This script is intended to setup robonetracker in ~/source/robonetracker
 # with dependencies on homebrew or linuxbrew depending on the OS being used
 # @author Andrew Hundt <ATHundt@gmail.com>
@@ -25,32 +26,21 @@ set -x
 # Save script's current directory
 DIR=$(pwd)
 
+
 #
 # Check if Homebrew is installed
 #
 which brew
 if [[ $? != 0 ]] ; then
-
-    if [[ "$OSTYPE" == "linux-gnu" ]]; then
-            # ...
-            source <(curl -fsSL https://raw.githubusercontent.com/ahundt/homebrew-robotics/master/linuxbrew-standalone.sh)
-    elif [[ "$OSTYPE" == "darwin"* ]]; then
-            # Mac OSX
-
-            # Install Homebrew
-            # https://github.com/mxcl/homebrew/wiki/installation
-            /usr/bin/ruby -e "$(curl -fsSL https://raw.github.com/gist/323731)"
-    elif [[ "$OSTYPE" == "cygwin" ]]; then
-            # POSIX compatibility layer and Linux environment emulation for Windows
-    elif [[ "$OSTYPE" == "msys" ]]; then
-            # Lightweight shell and GNU utilities compiled for Windows (part of MinGW)
-    elif [[ "$OSTYPE" == "win32" ]]; then
-            # I'm not sure this can happen.
-    elif [[ "$OSTYPE" == "freebsd"* ]]; then
-            # ...
-    else
-            # Unknown.
-    fi
+    
+    case "$OSTYPE" in
+      solaris*) echo "SOLARIS" ;;
+      darwin*)  /usr/bin/ruby -e "$(curl -fsSL https://raw.github.com/gist/323731)" ;; 
+      linux*) curl -fsSL https://raw.githubusercontent.com/ahundt/homebrew-robotics/master/linuxbrew-standalone.sh | bash /dev/stdin ;;
+      bsd*)     echo "BSD" ;;
+      *)        echo "unknown: $OSTYPE" ;;
+    esac
+    
 else
     brew update
 fi
@@ -66,34 +56,31 @@ cd $HOME
 # lots of scientific libraries and developer tools
 brew tap homebrew/science
 
-brew install cmake git python doxygen flatbuffers
+brew install python
+brew install cmake --with-docs
+brew install doxygen flatbuffers
 brew install boost --c++11
 
 # brew install pcl --with-qt5 --with-openni2 --with-examples
 
-if [[ "$OSTYPE" == "linux-gnu" ]]; then
-        # ...
-elif [[ "$OSTYPE" == "darwin"* ]]; then
-        # Mac OSX
 
-        # Enable --with cuda if you have an nvidia graphics card and cuda 7.0 or greater installed
-        # install caskroom application manager
-        # brew casks are only supported on mac, not linux
-        brew install caskroom/cask/brew-cask
-        # http://docs.nvidia.com/cuda/index.html
-        #brew cask install cuda
-        #brew cask install vrep
-elif [[ "$OSTYPE" == "cygwin" ]]; then
-        # POSIX compatibility layer and Linux environment emulation for Windows
-elif [[ "$OSTYPE" == "msys" ]]; then
-        # Lightweight shell and GNU utilities compiled for Windows (part of MinGW)
-elif [[ "$OSTYPE" == "win32" ]]; then
-        # I'm not sure this can happen.
-elif [[ "$OSTYPE" == "freebsd"* ]]; then
-        # ...
-else
-        # Unknown.
-fi
+case "$OSTYPE" in
+  solaris*) echo "SOLARIS" ;;
+
+  # Mac OSX TODO:
+
+  # Enable --with cuda if you have an nvidia graphics card and cuda 7.0 or greater installed
+  # install caskroom application manager
+  # brew casks are only supported on mac, not linux
+  
+  # http://docs.nvidia.com/cuda/index.html
+  #brew cask install cuda
+  #brew cask install vrep
+  darwin*)  brew install caskroom/cask/brew-cask ;; 
+  linux*) ;;
+  bsd*)     echo "BSD" ;;
+  *)        echo "unknown: $OSTYPE" ;;
+esac
 
 brew install opencv3 --c++11 --with-contrib # --with-cuda
 
@@ -108,5 +95,6 @@ brew install azmq --HEAD
 
 cd $DIR
 
+# TODO: Check for robonetracker dir before cloning
 git clone git@github.com:ahundt/robonetracker.git
 cd robonetracker; mkdir build; cd build; cmake ..; make -j4

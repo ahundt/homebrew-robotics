@@ -49,12 +49,20 @@ brew install Caskroom/cask/vagrant
 `brew install sawconstraintcontroller --HEAD`
 
 
+Specific Situations
+-------------------
 
----------------
+
+##### Linux or OS X quick robonetracker first setup
+
+[robonetracker](https://github.com/ahundt/robonetracker ) is a private github repository at JHU, make sure
+you have access before running this script. Also, know your github username and password,
+if you don't you'll have to finish manually! Run this command to perform setup:
+
+    bash <(curl -fsSL https://raw.githubusercontent.com/ahundt/homebrew-robotics/master/robonetracker.sh)
 
 
-#### Specific Situations
-
+##### Using vmware fusion and vagrant (not working yet)
 Running and testing these scripts on Ubuntu from an OS X machine with VMWare Fusion.
 
 First install VMWare Fusion and follow all the initial setup steps above, including Homebrew Cask.
