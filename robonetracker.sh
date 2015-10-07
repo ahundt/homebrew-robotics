@@ -26,21 +26,36 @@ set -x
 # Save script's current directory
 DIR=$(pwd)
 
-
 #
 # Check if Homebrew is installed
 #
 which brew
 if [[ $? != 0 ]] ; then
-    
-    case "$OSTYPE" in
-      solaris*) echo "SOLARIS" ;;
-      darwin*)  /usr/bin/ruby -e "$(curl -fsSL https://raw.github.com/gist/323731)" ;; 
-      linux*) curl -fsSL https://raw.githubusercontent.com/ahundt/homebrew-robotics/master/linuxbrew-standalone.sh | bash /dev/stdin ;;
-      bsd*)     echo "BSD" ;;
-      *)        echo "unknown: $OSTYPE" ;;
-    esac
-    
+
+    OS="`uname`"
+    case $OS in
+      'Linux')
+        OS='Linux'
+        alias ls='ls --color=auto'
+        curl -fsSL https://raw.githubusercontent.com/ahundt/homebrew-robotics/master/linuxbrew-standalone.sh | bash /dev/stdin
+        ;;
+      'FreeBSD')
+        OS='FreeBSD'
+        alias ls='ls -G'
+        ;;
+      'WindowsNT')
+        OS='Windows'
+        ;;
+      'Darwin') 
+        OS='Mac'
+        /usr/bin/ruby -e "$(curl -fsSL https://raw.github.com/gist/323731)"
+        ;;
+      'SunOS')
+        OS='Solaris'
+        ;;
+      'AIX') ;;
+      *) ;;
+    esac    
 else
     brew update
 fi
@@ -64,24 +79,45 @@ brew install boost --c++11
 # brew install pcl --with-qt5 --with-openni2 --with-examples
 
 
-case "$OSTYPE" in
-  solaris*) echo "SOLARIS" ;;
 
-  # Mac OSX TODO:
+# Mac & Linux TODO:
+# This needs to be fit into the OSTYPE case statement, or a new way to do this
+# with multiple lines needs to be worked out. 
+#  https://stackoverflow.com/questions/394230/detect-the-os-from-a-bash-script
 
-  # Enable --with cuda if you have an nvidia graphics card and cuda 7.0 or greater installed
-  # install caskroom application manager
-  # brew casks are only supported on mac, not linux
-  
-  # http://docs.nvidia.com/cuda/index.html
-  #brew cask install cuda
-  #brew cask install vrep
-  darwin*)  brew install caskroom/cask/brew-cask ;; 
-  linux*) ;;
-  bsd*)     echo "BSD" ;;
-  *)        echo "unknown: $OSTYPE" ;;
+# Mac OSX TODO:
+
+# Enable --with cuda if you have an nvidia graphics card and cuda 7.0 or greater installed
+# install caskroom application manager
+# brew casks are only supported on mac, not linux
+
+# http://docs.nvidia.com/cuda/index.html
+#brew cask install cuda
+#brew cask install vrep
+# Detect the platform (similar to $OSTYPE)
+OS="`uname`"
+case $OS in
+  'Linux')
+    OS='Linux'
+    alias ls='ls --color=auto'
+    ;;
+  'FreeBSD')
+    OS='FreeBSD'
+    alias ls='ls -G'
+    ;;
+  'WindowsNT')
+    OS='Windows'
+    ;;
+  'Darwin') 
+    OS='Mac'
+    brew install caskroom/cask/brew-cask 
+    ;;
+  'SunOS')
+    OS='Solaris'
+    ;;
+  'AIX') ;;
+  *) ;;
 esac
-
 brew install opencv3 --c++11 --with-contrib # --with-cuda
 
 # from https://github.com/ahundt/homebrew-robotics
