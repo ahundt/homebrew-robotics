@@ -19,6 +19,7 @@ class Grl < Formula
   depends_on "azmq"
   depends_on "protobuf"
   depends_on "tbb"
+  depends_on "gflags"
   depends_on "homebrew/science/suite-sparse"
   depends_on "cisstnetlib" => :recommended
   depends_on "cisst" => :recommended

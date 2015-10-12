@@ -127,8 +127,9 @@ brew install cmake-basis --devel -v
 brew install tbb
 brew install protobuf
 brew install suite-sparse
+brew install gflags
 brew install --HEAD --build-from-source --HEAD cisstnetlib # --cc=clang 
-brew install cisst --devel
+brew install cisst
 brew install sawconstraintcontroller --HEAD
 brew install azmq --HEAD
 
