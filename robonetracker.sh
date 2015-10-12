@@ -118,12 +118,15 @@ case $OS in
   'AIX') ;;
   *) ;;
 esac
-brew install opencv3 --c++11 --with-contrib # --with-cuda
+brew install opencv3 --with-contrib --c++11 --without-python3 --without-python -v # --with-cuda
 
 # from https://github.com/ahundt/homebrew-robotics
 # robotics related libraries
 brew tap ahundt/robotics
 brew install cmake-basis --devel -v
+brew install tbb
+brew install protobuf
+brew install suite-sparse
 brew install --HEAD --build-from-source --HEAD cisstnetlib # --cc=clang 
 brew install cisst --devel
 brew install sawconstraintcontroller --HEAD
@@ -133,4 +136,4 @@ cd $DIR
 
 # TODO: Check for robonetracker dir before cloning
 git clone git@github.com:ahundt/robonetracker.git
-cd robonetracker; mkdir build; cd build; cmake ..; make -j4
+cd robonetracker; mkdir build; cd build; cmake .. -DBUILD_ALL_MODULES=ON -DBUILD-TESTING=ON; make -j4
