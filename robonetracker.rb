@@ -18,9 +18,10 @@ class Grl < Formula
   depends_on "zeromq"
   depends_on "azmq"
   depends_on "protobuf"
-  depends_on "tbb"
-  depends_on "gflags"
-  depends_on "homebrew/science/suite-sparse"
+  depends_on "tbb" # camodocal
+  depends_on "glog" # camodocal
+  depends_on "gflags" # camodocal
+  depends_on "homebrew/science/suite-sparse" # camodocal
   depends_on "cisstnetlib" => :recommended
   depends_on "cisst" => :recommended
 

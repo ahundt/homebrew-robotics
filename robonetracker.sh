@@ -32,7 +32,7 @@ DIR=$(pwd)
 which brew
 if [[ $? != 0 ]] ; then
 
-    OS="`uname`"
+    OS=`uname`
     case $OS in
       'Linux')
         OS='Linux'
@@ -95,7 +95,7 @@ brew install boost --c++11
 #brew cask install cuda
 #brew cask install vrep
 # Detect the platform (similar to $OSTYPE)
-OS="`uname`"
+OS=`uname`
 case $OS in
   'Linux')
     OS='Linux'
@@ -119,15 +119,13 @@ case $OS in
   *) ;;
 esac
 brew install opencv3 --with-contrib --c++11 --without-python3 --without-python -v # --with-cuda
+brew link opencv3 --force
 
 # from https://github.com/ahundt/homebrew-robotics
 # robotics related libraries
 brew tap ahundt/robotics
 brew install cmake-basis --devel -v
-brew install tbb
-brew install protobuf
-brew install suite-sparse
-brew install gflags
+brew install tbb protobuf suite-sparse gflags glog
 brew install --HEAD --build-from-source --HEAD cisstnetlib # --cc=clang 
 brew install cisst --HEAD
 brew install sawconstraintcontroller --HEAD
@@ -136,5 +134,24 @@ brew install azmq --HEAD
 cd $DIR
 
 # TODO: Check for robonetracker dir before cloning
-git clone git@github.com:ahundt/robonetracker.git
-cd robonetracker; mkdir build; cd build; cmake .. -DBUILD_ALL_MODULES=ON -DBUILD-TESTING=ON; make -j4
+
+if [ ! -d $HOME/.linuxbrew ] ; then
+    git clone git@github.com:ahundt/robonetracker.git
+fi
+
+cd robonetracker; 
+
+if [ ! -d `pwd`/build ] ; then
+    mkdir build;
+fi
+
+cd build;
+
+if [ -d $HOME/.linuxbrew ] ; then
+    cmake .. -DCisstNetlib_DIR=/home/hbr/.linuxbrew/Cellar/cisstnetlib/HEAD/cmake  -DBUILD_ALL_MODULES=ON -DBUILD-TESTING=ON -DsawConstraintController_DIR=/home/hbr/.linuxbrew/Cellar/sawconstraintcontroller/HEAD/share/cisst-1.0/cmake/saw/ -DBLAS_LIBRARIES_DIR=~/.linuxbrew/lib -DLAPACK_LIBRARIES_DIR=~/.linuxbrew/lib -DLibrt_LIBRARIES=~/.linuxbrew/lib/librt.so;
+else
+    cmake .. -DBUILD_ALL_MODULES=ON -DBUILD-TESTING=ON;
+fi
+
+# Build as much as possible, ignoring errors
+make -j4 -i
