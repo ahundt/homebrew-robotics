@@ -56,7 +56,7 @@ Specific Situations
 ##### Linux or OS X quick robonetracker first setup
 
 [robonetracker](https://github.com/ahundt/robonetracker ) is a private github repository at JHU, make sure
-you have access before running this script. Also, know your github username and password,
+you have access before running this script. Also, [make sure you have an ssh key configured](https://help.github.com/articles/error-permission-denied-publickey/),
 if you don't you'll have to finish manually! Run this command to perform setup:
 
     bash <(curl -fsSL https://raw.githubusercontent.com/ahundt/homebrew-robotics/master/robonetracker.sh)
