@@ -1,7 +1,7 @@
 class CmakeBasis < Formula
   desc "cmake build and installer generation tools"
   homepage "http://opensource.andreasschuh.com/cmake-basis/"
-  url "http://schuhschuh.github.io/cmake-basis/", :using => :git, :tag => "v3.2.0"
+  url "https://github.com/schuhschuh/cmake-basis.git", :using => :git, :tag => "v3.2.0"
   version "3.2"
   #sha256 ""
 
