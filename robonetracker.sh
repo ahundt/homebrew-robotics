@@ -125,7 +125,7 @@ brew link opencv3 --force
 # robotics related libraries
 brew tap ahundt/robotics
 brew install cmake-basis --devel -v
-brew install tbb protobuf suite-sparse gflags glog
+brew install tbb protobuf suite-sparse gflags glog openblas
 brew install --HEAD --build-from-source --HEAD cisstnetlib # --cc=clang 
 brew install cisst
 brew install sawconstraintcontroller --HEAD
