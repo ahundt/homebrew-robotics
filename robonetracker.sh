@@ -127,7 +127,7 @@ brew tap ahundt/robotics
 brew install cmake-basis --devel -v
 brew install tbb protobuf suite-sparse gflags glog
 brew install --HEAD --build-from-source --HEAD cisstnetlib # --cc=clang 
-brew install cisst --HEAD
+brew install cisst
 brew install sawconstraintcontroller --HEAD
 brew install azmq --HEAD
 
@@ -148,7 +148,7 @@ fi
 cd build;
 
 if [ -d $HOME/.linuxbrew ] ; then
-    cmake .. -DCisstNetlib_DIR=/home/hbr/.linuxbrew/Cellar/cisstnetlib/HEAD/cmake  -DBUILD_ALL_MODULES=ON -DBUILD-TESTING=ON -DsawConstraintController_DIR=/home/hbr/.linuxbrew/Cellar/sawconstraintcontroller/HEAD/share/cisst-1.0/cmake/saw/ -DBLAS_LIBRARIES_DIR=~/.linuxbrew/lib -DLAPACK_LIBRARIES_DIR=~/.linuxbrew/lib -DLibrt_LIBRARIES=~/.linuxbrew/lib/librt.so;
+    cmake .. -DCisstNetlib_DIR=/home/hbr/.linuxbrew/Cellar/cisstnetlib/HEAD/cmake  -DBUILD_ALL_MODULES=ON -DBUILD-TESTING=ON -DsawConstraintController_DIR=/home/hbr/.linuxbrew/Cellar/sawconstraintcontroller/HEAD/share/cisst-1.0/cmake/saw/ -DBLAS_LIBRARIES_DIR=~/.linuxbrew/lib -DLAPACK_LIBRARIES_DIR=~/.linuxbrew/lib -DLibrt_LIBRARIES=~/.linuxbrew/lib/librt.so
 else
     cmake .. -DBUILD_ALL_MODULES=ON -DBUILD-TESTING=ON;
 fi
