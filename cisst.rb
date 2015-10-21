@@ -5,7 +5,7 @@
 class Cisst < Formula
   desc "cisst combines robotics, stereo vision, intraoperative imaging, and related infrastructure"
   homepage "https://github.com/jhu-cisst/cisst"
-  url "https://github.com/jhu-cisst/cisst.git", :tag => "1.0.4"
+  url "https://github.com/jhu-cisst/cisst.git", :tag => "1.0.5"
   head "https://github.com/jhu-cisst/cisst.git", :branch => "devel"
   version "1.0.4"
   #sha256 ""
