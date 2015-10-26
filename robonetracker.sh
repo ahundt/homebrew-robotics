@@ -72,7 +72,8 @@ cd $HOME
 brew tap homebrew/science
 
 brew install python
-brew install cmake --with-docs
+
+brew install cmake --with-docs -vd
 brew install doxygen flatbuffers
 brew install boost --c++11
 
@@ -110,7 +111,7 @@ case $OS in
     ;;
   'Darwin') 
     OS='Mac'
-    brew install caskroom/cask/brew-cask 
+    # brew install caskroom/cask/brew-cask 
     ;;
   'SunOS')
     OS='Solaris'
@@ -125,7 +126,7 @@ brew link opencv3 --force
 # robotics related libraries
 brew tap ahundt/robotics
 brew install cmake-basis --devel -v
-brew install tbb protobuf suite-sparse gflags glog openblas
+brew install tbb protobuf suite-sparse gflags glog openblas ceres-solver
 brew install --HEAD --build-from-source --HEAD cisstnetlib # --cc=clang 
 brew install cisst
 brew install sawconstraintcontroller --HEAD
@@ -133,9 +134,7 @@ brew install azmq --HEAD
 
 cd $DIR
 
-# TODO: Check for robonetracker dir before cloning
-
-if [ ! -d $HOME/.linuxbrew ] ; then
+if [ ! -d $DIR/robonetracker ] ; then
     git clone git@github.com:ahundt/robonetracker.git
 fi
 
@@ -148,10 +147,15 @@ fi
 cd build;
 
 if [ -d $HOME/.linuxbrew ] ; then
-    cmake .. -DCisstNetlib_DIR=/home/hbr/.linuxbrew/Cellar/cisstnetlib/HEAD/cmake  -DBUILD_ALL_MODULES=ON -DBUILD-TESTING=ON -DsawConstraintController_DIR=/home/hbr/.linuxbrew/Cellar/sawconstraintcontroller/HEAD/share/cisst-1.0/cmake/saw/ -DBLAS_LIBRARIES_DIR=~/.linuxbrew/lib -DLAPACK_LIBRARIES_DIR=~/.linuxbrew/lib -DLibrt_LIBRARIES=~/.linuxbrew/lib/librt.so
+#    cmake .. -DCisstNetlib_DIR=$HOME/.linuxbrew/Cellar/cisstnetlib/HEAD/cmake  -DBUILD_ALL_MODULES=ON -DBUILD-TESTING=ON -DsawConstraintController_DIR=$HOME/.linuxbrew/Cellar/sawconstraintcontroller/HEAD/share/cisst-1.0/cmake/saw/ -DBLAS_LIBRARIES_DIR=~/.linuxbrew/lib -DLAPACK_LIBRARIES_DIR=~/.linuxbrew/lib -DLibrt_LIBRARIES=~/.linuxbrew/lib/librt.so
+    cmake .. -DCisstNetlib_DIR=$HOME/.linuxbrew/Cellar/cisstnetlib/HEAD/cmake  -DBUILD_ALL_MODULES=ON -DBUILD-TESTING=ON -DsawConstraintController_DIR=$HOME/.linuxbrew/Cellar/sawconstraintcontroller/HEAD/share/cisst-1.0/cmake/saw/ -DBLAS_LIBRARIES_DIR=~/.linuxbrew/lib -DLAPACK_LIBRARIES_DIR=~/.linuxbrew/lib -DLibrt_LIBRARIES=~/.linuxbrew/lib/librt.so
+    
 else
-    cmake .. -DBUILD_ALL_MODULES=ON -DBUILD-TESTING=ON;
+   cmake .. -DBUILD_ALL_MODULES=ON -DBUILD-TESTING=ON -DCisstNetlib_DIR=/usr/local/Cellar/cisstnetlib/HEAD/cmake -DLAPACK_LIBRARIES_DIR=~/usr/local/Cellar/lib -DsawConstraintController_DIR=usr/local/Cellar/sawconstraintcontroller/HEAD/share/cisst-1.0/cmake/saw/
+
 fi
 
 # Build as much as possible, ignoring errors
 make -j4 -i
+
+
