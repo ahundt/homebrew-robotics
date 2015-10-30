@@ -1,5 +1,5 @@
 class Grl < Formula
-  desc "Generic Robotics Library, long term goal of providing Generic Programming robotics tools in C++11. Currently implements Kuka LBR iiwa drivers and V-REP integration."
+  desc "Robone project repository, example of using grl library."
 
   homepage "https://github.com/ahundt/robone"
   url "git@github.com:ahundt/robone.git", :using => :git, :branch => "master"
@@ -25,7 +25,7 @@ class Grl < Formula
 
   head do
 
-    url "git@github.com:ahundt/grl.git", :using => :git, :branch => "master"
+    url "git@github.com:ahundt/robone.git", :using => :git, :branch => "master"
 
   end
 

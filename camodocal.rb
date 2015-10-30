@@ -13,11 +13,11 @@ class Camodocal < Formula
   depends_on "cmake"        => :build
   depends_on "suite-sparse" => :required
   depends_on "eigen"        => :required
-  depends_on "opencv"       => :recommended
-  depends_on "opencv3"      => :optional
+  depends_on "opencv3"      => :recommended
   depends_on "gflags"       => :recommended
   depends_on "glog"         => :recommended
   depends_on "openblas"     => :recommended
+  depends_on "opencv"       => :optional
 
   def install
     # ENV.deparallelize  # if your formula fails when building in parallel

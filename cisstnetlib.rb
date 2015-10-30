@@ -5,6 +5,7 @@
 class Cisstnetlib < Formula
   desc "cisstNetlib wraps numerical routines found on http://www.netlib.org"
   homepage "https://github.com/jhu-cisst/cisstNetlib"
+  url  "https://github.com/jhu-cisst/cisstNetlib.git", :branch => "master"
   head "https://github.com/jhu-cisst/cisstNetlib.git"
   version "0.01"
   #sha256 ""
