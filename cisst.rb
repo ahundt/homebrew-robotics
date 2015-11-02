@@ -7,7 +7,7 @@ class Cisst < Formula
   homepage "https://github.com/jhu-cisst/cisst"
   url "https://github.com/jhu-cisst/cisst.git", :tag => "1.0.5"
   head "https://github.com/jhu-cisst/cisst.git", :branch => "devel"
-  version "1.0.4"
+  version "1.0.5"
   #sha256 ""
 
   option "with-debug","build library with debug symbols enabled"
