@@ -22,9 +22,15 @@ class Camodocal < Formula
   def install
     # ENV.deparallelize  # if your formula fails when building in parallel
     cmake_args = std_cmake_args + %W[
-      -DSUITESPARSE_DIR=#{Formula["suite-sparse"].opt_prefix}
+      -DSUITESPARSE_DIR=#{Formula["suite-sparse"].prefix}
     ]
-    
+
+    if build.with? "opencv3"
+      cmake_args << "-DOpenCV_DIR=#{Formula["opencv3"].prefix}/share/OpenCV/"
+    elsif build.with? "opencv"
+      cmake_args << "-DOpenCV_DIR=#{Formula["opencv"].prefix}/share/OpenCV/"
+    end
+
     system "cmake", ".", *cmake_args
     system "make", "install" # if this fails, try separate make/make install steps
   end
