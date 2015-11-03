@@ -1,4 +1,4 @@
-class Grl < Formula
+class Robone < Formula
   desc "Robone project repository, example of using grl library."
 
   homepage "https://github.com/ahundt/robone"
