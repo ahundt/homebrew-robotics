@@ -2,7 +2,7 @@ class Robone < Formula
   desc "Robone project repository, example of using grl library."
 
   homepage "https://github.com/ahundt/robone"
-  url "git@github.com:ahundt/robone.git", :using => :git, :branch => "master"
+  url "https://github.com/ahundt/robone.git", :using => :git, :branch => "master"
   version "2.0.1"
   homepage "https://github.com/ahundt/robone"
 
