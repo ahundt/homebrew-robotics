@@ -1,10 +1,10 @@
 class Grl < Formula
   desc "Generic Robotics Library, long term goal of providing Generic Programming robotics tools in C++11. Currently implements Kuka LBR iiwa drivers and V-REP integration."
 
-  homepage "https://github.com/ahundt/robone"
-  url "git@github.com:ahundt/robone.git", :using => :git, :branch => "master"
+  homepage "https://github.com/ahundt/grl"
+  url "git@github.com:ahundt/grl.git", :using => :git, :branch => "master"
   version "2.0.1"
-  homepage "https://github.com/ahundt/robone"
+  homepage "https://github.com/ahundt/grl"
 
   option "with-debug","build library with debug symbols enabled"
   option "without-example", "Include example code"
