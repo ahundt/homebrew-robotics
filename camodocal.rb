@@ -26,9 +26,9 @@ class Camodocal < Formula
     ]
 
     if build.with? "opencv3"
-      cmake_args << "-DOpenCV_DIR=#{Formula["opencv3"].prefix}/share/OpenCV/"
+      cmake_args << "-DOPENCV_DIR=#{Formula["opencv3"].prefix}/share/OpenCV/"
     elsif build.with? "opencv"
-      cmake_args << "-DOpenCV_DIR=#{Formula["opencv"].prefix}/share/OpenCV/"
+      cmake_args << "-DOPENCV_DIR=#{Formula["opencv"].prefix}/share/OpenCV/"
     end
 
     system "cmake", ".", *cmake_args
