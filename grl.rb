@@ -62,9 +62,12 @@ class Grl < Formula
     if build.with? "cisstnetlib"
       cmake_args << "-DCisstNetlib_DIR=#{Formula["cisstnetlib"].opt_prefix}/cmake"
     end
-
-    system "cmake", ".", *cmake_args
-    system "make", "install"
+    
+    mkdir "build" do
+      system "cmake", "-G", "Unix Makefiles", "..", *cmake_args
+      system "make"
+      system "make", "install"
+   end
   end
 
   test do
