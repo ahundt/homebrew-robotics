@@ -125,12 +125,12 @@ brew link opencv3 --force
 # from https://github.com/ahundt/homebrew-robotics
 # robotics related libraries
 brew tap ahundt/robotics
-brew install cmake-basis --devel -v
+brew install cmake-basis
 brew install tbb protobuf suite-sparse gflags glog openblas ceres-solver
-brew install --HEAD --build-from-source --HEAD cisstnetlib # --cc=clang 
+brew install cisstnetlib # --cc=clang 
 brew install cisst
-brew install sawconstraintcontroller --HEAD
-brew install azmq --HEAD
+brew install sawconstraintcontroller
+brew install azmq
 
 cd $DIR
 

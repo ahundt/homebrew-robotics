@@ -13,17 +13,25 @@ class Camodocal < Formula
   depends_on "cmake"        => :build
   depends_on "suite-sparse" => :required
   depends_on "eigen"        => :required
-  depends_on "opencv"       => :recommended
-  depends_on "opencv3"      => :optional
+  depends_on "opencv3"      => :recommended
   depends_on "gflags"       => :recommended
   depends_on "glog"         => :recommended
   depends_on "openblas"     => :recommended
+  depends_on "opencv"       => :optional
 
   def install
     # ENV.deparallelize  # if your formula fails when building in parallel
-    args = std_cmake_args
-    
-    system "cmake", ".", *args
+    cmake_args = std_cmake_args + %W[
+      -DSUITESPARSE_DIR=#{Formula["suite-sparse"].prefix}
+    ]
+
+    if build.with? "opencv3"
+      cmake_args << "-DOPENCV_DIR=#{Formula["opencv3"].prefix}"
+    elsif build.with? "opencv"
+      cmake_args << "-DOPENCV_DIR=#{Formula["opencv"].prefix}"
+    end
+
+    system "cmake", ".", *cmake_args
     system "make", "install" # if this fails, try separate make/make install steps
   end
 

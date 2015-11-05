@@ -1,4 +1,4 @@
-class Grl < Formula
+class RoboneTracker < Formula
   desc "Robone project at Johns Hopkins University. This is a private repository. Contact: ATHundt@gmail.com"
 
   homepage "https://github.com/ahundt/robonetracker"
