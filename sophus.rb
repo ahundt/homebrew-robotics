@@ -7,7 +7,6 @@ class Sophus < Formula
 
   depends_on "cmake" => :build
   depends_on "boost"
-  depends_on "zeromq"
   depends_on "eigen"
 
   def install
