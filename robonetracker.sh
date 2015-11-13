@@ -66,7 +66,8 @@ fi
 #
 # Check if Git is installed
 #
-if type git &> /dev/null; then
+which git
+if [[ $? != 0 ]] ; then
     brew install git
 fi
 
