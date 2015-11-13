@@ -21,7 +21,7 @@ export PATH="$HOME/.linuxbrew/bin:$PATH"
 #export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
 #export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 
-if [! -d "$HOME/.linuxbrew" ]; then
+if [ ! -d "$HOME/.linuxbrew" ]; then
   yes | ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/linuxbrew/go/install)"
   # hang on here. you will have to press return
   # note that even if brew doctor is a little unhappy we want to keep going

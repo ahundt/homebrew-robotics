@@ -18,7 +18,7 @@ sudo apt-get install build-essential curl g++ git m4 ruby texinfo libbz2-dev lib
 unset LD_LIBRARY_PATH PKG_CONFIG_PATH HOMEBREW_CC
 PATH=$HOME/.linuxbrew/bin:/usr/local/bin:/usr/bin:/bin
 
-if [! -d "$HOME/.linuxbrew" ]; then
+if [ ! -d "$HOME/.linuxbrew" ]; then
   yes | ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/linuxbrew/go/install)"
   # hang on here. you will have to press return
   # note that even if brew doctor is a little unhappy we want to keep going
