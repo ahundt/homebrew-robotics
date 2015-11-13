@@ -63,13 +63,6 @@ else
     brew update
 fi
 
-#
-# Check if Git is installed
-#
-if ! [ -x "$(command -v git)" ]; then
-  brew install git
-fi
-
 
 cd $HOME
 
