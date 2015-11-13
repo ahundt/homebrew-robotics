@@ -16,10 +16,10 @@ sudo apt-get update --fix-missing -y
 sudo apt-get install build-essential curl g++ gfortran python-setuptools python-dev git m4 ruby texinfo libbz2-dev libcurl4-openssl-dev libexpat-dev libncurses-dev zlib1g-dev gawk make patch tcl -y
 
 export PKG_CONFIG_PATH="/usr/bin/pkg-config:$HOME/.linuxbrew/bin/pkg-config"
-export PKG_CONFIG_LIBDIR=/usr/lib/pkgconfig
+export PKG_CONFIG_LIBDIR="/usr/lib/pkgconfig:$HOME/.linuxbrew/lib/pkgconfig"
 export PATH="$HOME/.linuxbrew/bin:$PATH"
-export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
-export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
+#export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
+#export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 
 if [! -d "$HOME/.linuxbrew" ]; then
   yes | ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/linuxbrew/go/install)"
