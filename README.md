@@ -1,6 +1,24 @@
 # homebrew-robotics
 
-A collection of homebrew formulae for use in the field of robotics.
+A collection of [homebrew formulae](https://brew.sh) for use in the field of robotics.
+
+### Libraries to install once set up:
+
+#### [grl](https://github.com/ahundt/grl/) generic robotics library
+
+grl implements control of the kuka iiwa arm and integrates hand eye calibration with [vrep](http://www.coppeliarobotics.com/index.html)
+
+    brew install grl
+
+#### [cisst](https://github.com/jhu-cisst/cisst) is the JHU computer integrated surgery library
+
+    brew install cisst
+
+#### [camodocal](https://github.com/hengli/camodocal) multiple camera calibration library
+
+camodocal is a well written library with calibration of cameras and hand eye calibration. 
+
+    brew install camodocal
 
 ## OS X Quick Setup
 
@@ -15,7 +33,7 @@ brew tap homebrew/science
 brew tap ahundt/robotics
 ```
 
-The basic setup is done! You may want to install some useful applications:
+The basic setup is done! You may want to install some useful applications as well:
 
 ```
 # caskroom is for installing full applications
@@ -24,25 +42,27 @@ brew install caskroom
 brew install Caskroom/cask/cuda
 # Coppelia robotics' vrep robot simulator
 brew install Caskroom/cask/vrep
-# VMWare fusion (requires license)
-brew install Caskroom/cask/vmware-fusion
-# Vagrant (command line control of VMs), requires license with VMWare, free with virualbox
-brew install Caskroom/cask/vagrant
 ```
 
 ## Step by Step Setup for OS X and Linux
 
 1. Setup brew for OS X or Linux
     - [Homebrew OS X setup instructions](http://brew.sh/) or paste `ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"` into the terminal
-    - [Linuxbrew setup instructions](https://github.com/Homebrew/linuxbrew/wiki/Standalone-Installation), or paste `bash <(curl -fsSL https://raw.githubusercontent.com/ahundt/homebrew-robotics/master/linuxbrew-standalone.sh)` into the terminal
-2. Linux only - add linuxbrew to `~/.bashrc`, paste `echo 'prefix=~/.linuxbrew;PATH="$prefix/bin:$prefix/sbin:$PATH" # give linuxbrew priority, see https://github.com/Homebrew/linuxbrew/' >> ~/.bashrc; source ~/.bashrc` into terminal.
+    - [Linuxbrew setup instructions](http://brew.sh/linuxbrew/), or paste `bash <(curl -fsSL https://raw.githubusercontent.com/ahundt/homebrew-robotics/master/linuxbrew.sh)` into the terminal
+2. Linux only - add linuxbrew to your `~/.bashrc` or ~/.zshrc:
+    export PKG_CONFIG_PATH="/usr/bin/pkg-config:$HOME/.linuxbrew/bin/pkg-config"
+    export PKG_CONFIG_LIBDIR="/usr/lib/pkgconfig:$HOME/.linuxbrew/lib/pkgconfig"
+    export PATH="$HOME/.linuxbrew/bin:$PATH"                                    
+    export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"                        
+    export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 3. Check that it is setup correctly `brew help` should output the homebrew help.
 4. OS X only - install [Homebrew Cask](http://caskroom.io/) `brew install caskroom/cask/brew-cask`
 5. Run `brew tap homebrew/science`, [homebrew-science](http://brew.sh/homebrew-science/) contains many scientific libraries, such as OpenCV and pcl
 6. Run `brew tap ahundt/robotics` to load this set of package formulas.
-7. Install the libraries you want to use, for example `brew install cisst`
-7. Done!
+7. Install the libraries you want to use, for example `brew install cisst` or `brew install grl`.
+8. Done!
 
+Note that on linux you may want to use `brew install libname --env=inherit`, so it uses your native environment variable configuration.
 
 Specific Situations
 -------------------
@@ -88,6 +108,13 @@ After making the modifications run `./SymbolicLinksRoboneSimulation.sh`. Check t
 
 Open V-REP, `File>Open>path/to/RoboneSimulation.ttt` (In the same directory as `SymbolicLinksRoboneSimulation.sh`). This should open the demo simulation. If you hit play and see it start running that means you are now all set up! Congratulations!
 
+
+##### Standalone linuxbrew installation
+
+The default installation of linuxbrew uses dependencies provided by the OS. A consistent environment across linux versions is achivable with [standalone linuxbrew](https://github.com/Homebrew/linuxbrew/wiki/Standalone-Installation) or paste `bash <(curl -fsSL https://raw.githubusercontent.com/ahundt/homebrew-robotics/master/linuxbrew-standalone.sh)`. 
+
+However, there are currently some bugs and complexities in using this version because every component is compiled from source, so the versions loaded and interaction of these libraries is completely separate from the underlying OS.
+
 ##### Using vmware fusion and vagrant (not working yet)
 Running and testing these scripts on Ubuntu from an OS X machine with VMWare Fusion.
 
@@ -111,4 +138,20 @@ Below is an example of installing the latest cisstnetlib devel branch with debug
 
 ```bash
 brew install --HEAD --cc=clang --build-from-source --with-debug -vd cisstnetlib
+```
+
+
+##### Some useful applications that can be installed on OS X:
+
+```
+# caskroom is for installing full applications
+brew install caskroom
+#  NVIDIA CUDA
+brew install Caskroom/cask/cuda
+# Coppelia robotics' vrep robot simulator
+brew install Caskroom/cask/vrep
+# VMWare fusion (requires license)
+brew install Caskroom/cask/vmware-fusion
+# Vagrant (command line control of VMs), requires license with VMWare, free with virualbox
+brew install Caskroom/cask/vagrant
 ```
