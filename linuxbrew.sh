@@ -38,9 +38,10 @@ brew install pkg-config
 brew tap homebrew/science
 brew tap ahundt/robotics
 
-echo "# Add the following variables to your .bashrc or .zshrc to complete the setup:"
-echo 'export PKG_CONFIG_PATH="/usr/bin/pkg-config:$HOME/.linuxbrew/bin/pkg-config"'
-echo 'export PKG_CONFIG_LIBDIR="/usr/lib/pkgconfig:$HOME/.linuxbrew/lib/pkgconfig"'
-echo 'export PATH="$HOME/.linuxbrew/bin:$PATH"                                    '
-echo 'export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"                        '
-echo 'export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"                     '
+# Add the following variables to your .bashrc or .zshrc to complete the setup:
+#
+# export PKG_CONFIG_PATH="/usr/bin/pkg-config:$HOME/.linuxbrew/bin/pkg-config"
+# export PKG_CONFIG_LIBDIR="/usr/lib/pkgconfig:$HOME/.linuxbrew/lib/pkgconfig"
+# export PATH="$HOME/.linuxbrew/bin:$PATH"                                    
+# export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"                        
+# export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"                     
