@@ -25,6 +25,7 @@ set -x
 # source: https://gist.github.com/phatblat/1713458
 # Save script's current directory
 DIR=$(pwd)
+OSPARAM=""
 
 #
 # Check if Homebrew is installed
@@ -38,9 +39,6 @@ if [[ $? != 0 ]] ; then
         OS='Linux'
         alias ls='ls --color=auto'
         curl -fsSL https://raw.githubusercontent.com/ahundt/homebrew-robotics/master/linuxbrew.sh | bash /dev/stdin
-        # This param lets robonetracker build with the native linux dependencies
-        # For details see: https://github.com/Homebrew/linuxbrew/issues/13
-        OSPARAM="--env=inherit"
         ;;
       'FreeBSD')
         OS='FreeBSD'
@@ -65,6 +63,12 @@ fi
 
 
 cd $HOME
+
+if [ -d $HOME/.linuxbrew ] ; then
+  # This param lets robonetracker build with the native linux dependencies
+  # For details see: https://github.com/Homebrew/linuxbrew/issues/13
+  OSPARAM="--env=inherit"
+fi
 
 # lots of scientific libraries and developer tools
 brew tap homebrew/science
