@@ -25,7 +25,6 @@ set -x
 # source: https://gist.github.com/phatblat/1713458
 # Save script's current directory
 DIR=$(pwd)
-OSPARAM=""
 
 #
 # Check if Homebrew is installed
@@ -64,6 +63,7 @@ fi
 
 cd $HOME
 
+OSPARAM=""
 if [ -d $HOME/.linuxbrew ] ; then
   # This param lets robonetracker build with the native linux dependencies
   # For details see: https://github.com/Homebrew/linuxbrew/issues/13
