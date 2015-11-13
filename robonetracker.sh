@@ -9,10 +9,10 @@
 # bash <(curl -fsSL https://raw.githubusercontent.com/ahundt/homebrew-robotics/master/robonetracker.sh)
 
 echo ""
-echo "##############################################################################################"
-echo "# Make sure you have access to https://github.com/ahundt/robonetracker                       #"
-echo "# Also, know your github username and password, if you don't you'll have to finish manually! #"
-echo "##############################################################################################"
+echo "###############################################################################################"
+echo "# Make sure you have access to https://github.com/ahundt/robonetracker                        #"
+echo "# Also, ensure you have your ssh key configured, if you don't you'll have to finish manually! #"
+echo "###############################################################################################"
 echo ""
 
 
@@ -37,7 +37,10 @@ if [[ $? != 0 ]] ; then
       'Linux')
         OS='Linux'
         alias ls='ls --color=auto'
-        curl -fsSL https://raw.githubusercontent.com/ahundt/homebrew-robotics/master/linuxbrew-standalone.sh | bash /dev/stdin
+        curl -fsSL https://raw.githubusercontent.com/ahundt/homebrew-robotics/master/linuxbrew.sh | bash /dev/stdin
+        # This param lets robonetracker build with the native linux dependencies
+        # For details see: https://github.com/Homebrew/linuxbrew/issues/13
+        OSPARAM="--env=inherit"
         ;;
       'FreeBSD')
         OS='FreeBSD'
@@ -70,13 +73,17 @@ cd $HOME
 
 # lots of scientific libraries and developer tools
 brew tap homebrew/science
+brew install cmake --with-docs  $OSPARAM
+brew install doxygen flatbuffers  $OSPARAM
 
-brew install python
-
-brew install cmake --with-docs -vd
-brew install doxygen flatbuffers
-brew install boost --c++11
-
+# install boost
+if [ -d $HOME/.linuxbrew ] ; then
+  # temporary until https://github.com/Homebrew/homebrew/issues/45954
+  # is resolved in both homebrew and linuxbrew
+  brew install https://raw.githubusercontent.com/ahundt/linuxbrew/f3158287defedf2067d701af13f586997a244256/Library/Formula/boost.rb --c++11  $OSPARAM
+else
+  brew install boost --c++11 $OSPARAM
+fi
 # brew install pcl --with-qt5 --with-openni2 --with-examples
 
 
@@ -95,42 +102,18 @@ brew install boost --c++11
 # http://docs.nvidia.com/cuda/index.html
 #brew cask install cuda
 #brew cask install vrep
-# Detect the platform (similar to $OSTYPE)
-OS=`uname`
-case $OS in
-  'Linux')
-    OS='Linux'
-    alias ls='ls --color=auto'
-    ;;
-  'FreeBSD')
-    OS='FreeBSD'
-    alias ls='ls -G'
-    ;;
-  'WindowsNT')
-    OS='Windows'
-    ;;
-  'Darwin') 
-    OS='Mac'
-    # brew install caskroom/cask/brew-cask 
-    ;;
-  'SunOS')
-    OS='Solaris'
-    ;;
-  'AIX') ;;
-  *) ;;
-esac
-brew install opencv3 --with-contrib --c++11 --without-python3 --without-python -v # --with-cuda
+brew install opencv3 --with-contrib --c++11 --without-python3 --without-python $OSPARAM -v # --with-cuda
 brew link opencv3 --force
 
 # from https://github.com/ahundt/homebrew-robotics
 # robotics related libraries
 brew tap ahundt/robotics
-brew install cmake-basis
-brew install tbb protobuf suite-sparse gflags glog openblas ceres-solver
-brew install cisstnetlib # --cc=clang 
-brew install cisst
-brew install sawconstraintcontroller
-brew install azmq
+brew install cmake-basis $OSPARAM
+brew install tbb protobuf suite-sparse gflags glog openblas ceres-solver $OSPARAM
+brew install cisstnetlib $OSPARAM # --cc=clang 
+brew install cisst $OSPARAM
+brew install sawconstraintcontroller $OSPARAM
+brew install azmq $OSPARAM
 
 cd $DIR
 
