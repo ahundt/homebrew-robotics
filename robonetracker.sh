@@ -29,8 +29,7 @@ DIR=$(pwd)
 #
 # Check if Homebrew is installed
 #
-which brew
-if [[ $? != 0 ]] ; then
+if  ! [ -x "$(command -v brew)" ] ; then
 
     OS=`uname`
     case $OS in
@@ -38,6 +37,9 @@ if [[ $? != 0 ]] ; then
         OS='Linux'
         alias ls='ls --color=auto'
         curl -fsSL https://raw.githubusercontent.com/ahundt/homebrew-robotics/master/linuxbrew.sh | bash /dev/stdin
+        export PKG_CONFIG_PATH="/usr/bin/pkg-config:$HOME/.linuxbrew/bin/pkg-config"
+        export PKG_CONFIG_LIBDIR="/usr/lib/pkgconfig:$HOME/.linuxbrew/lib/pkgconfig"
+        export PATH="$HOME/.linuxbrew/bin:$PATH"                                    
         ;;
       'FreeBSD')
         OS='FreeBSD'
