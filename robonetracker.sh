@@ -66,10 +66,7 @@ fi
 #
 # Check if Git is installed
 #
-which git
-if [[ $? != 0 ]] ; then
-    brew install git
-fi
+type git >/dev/null 2>&1 || { brew install git }
 
 
 cd $HOME
