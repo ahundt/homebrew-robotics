@@ -10,7 +10,11 @@ class Azmq < Formula
   depends_on "zeromq"
 
   def install
-    system "cmake", ".", *std_cmake_args
+    cmake_args = std_cmake_args + %W[
+      -DBoost_DIR=#{Formula["boost"].opt_prefix}
+    ]
+    
+    system "cmake", ".", *cmake_args
     system "make", "install"
   end
 
