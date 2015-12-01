@@ -111,6 +111,7 @@ brew link opencv3 --force
 brew tap ahundt/robotics
 brew install cmake-basis $OSPARAM
 brew install tbb protobuf suite-sparse gflags glog openblas ceres-solver $OSPARAM
+brew install ur_modern_driver $OSPARAM
 brew install cisstnetlib $OSPARAM # --cc=clang 
 brew install cisst $OSPARAM
 brew install sawconstraintcontroller $OSPARAM

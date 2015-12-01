@@ -21,6 +21,7 @@ class Grl < Formula
   depends_on "homebrew/science/suite-sparse"
   depends_on "cisstnetlib" => :recommended
   depends_on "cisst" => :recommended
+  depends_on "ur_modern_driver" => :recommended
 
 
   head do

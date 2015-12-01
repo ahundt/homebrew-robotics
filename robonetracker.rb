@@ -24,6 +24,7 @@ class RoboneTracker < Formula
   depends_on "homebrew/science/suite-sparse" # camodocal
   depends_on "cisstnetlib" => :recommended
   depends_on "cisst" => :recommended
+  depends_on "ur_modern_driver" => :recommended
 
 
   featurecisst do
