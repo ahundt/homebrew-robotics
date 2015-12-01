@@ -63,6 +63,10 @@ class Grl < Formula
     if build.with? "cisstnetlib"
       cmake_args << "-DCisstNetlib_DIR=#{Formula["cisstnetlib"].opt_prefix}/cmake"
     end
+
+    if build.with? "ur_modern_driver"
+      cmake_args << "-Dur_modern_driver_DIR=#{Formula["ur_modern_driver"].opt_prefix}/cmake"
+    end
     
     mkdir "build" do
       system "cmake", "-G", "Unix Makefiles", "..", *cmake_args
