@@ -13,7 +13,7 @@ class Azmq < Formula
     cmake_args = std_cmake_args + %W[
       -DBoost_DIR=#{Formula["boost"].opt_prefix}
     ]
-    
+
     system "cmake", ".", *cmake_args
     system "make", "install"
   end

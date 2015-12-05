@@ -1,4 +1,4 @@
-class LibNabo < Formula
+class Libnabo < Formula
   desc "A fast K Nearest Neighbor library for low-dimensional spaces"
   homepage "https://github.com/ethz-asl/libnabo"
   url  "https://github.com/ethz-asl/libnabo", :branch => "master"

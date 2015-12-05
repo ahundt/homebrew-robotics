@@ -1,4 +1,4 @@
-class LibPointMatcher < Formula
+class Libpointmatcher < Formula
   desc "An Iterative Closest Point library for 2-D/3-D mapping in robotic
 "
   homepage "https://github.com/ethz-asl/libpointmatcher"
