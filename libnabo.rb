@@ -1,8 +1,8 @@
 class Libnabo < Formula
   desc "A fast K Nearest Neighbor library for low-dimensional spaces"
   homepage "https://github.com/ethz-asl/libnabo"
-  url  "https://github.com/ethz-asl/libnabo", :branch => "master"
-  head "https://github.com/ethz-asl/libnabo"
+  url  "https://github.com/ethz-asl/libnabo.git", :branch => "master"
+  head "https://github.com/ethz-asl/libnabo.git"
   version "1.0.6"
 
   depends_on "cmake" => :build
