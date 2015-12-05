@@ -16,8 +16,11 @@ class Libpointmatcher < Formula
       -DBoost_DIR=#{Formula["boost"].opt_prefix}
     ]
     
-    system "cmake", ".", *cmake_args
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "-G", "Unix Makefiles", "..", *cmake_args
+      system "make"
+      system "make", "install"
+   end
   end
 
   test do
