@@ -81,7 +81,7 @@ brew install doxygen flatbuffers  $OSPARAM
 if [ -d $HOME/.linuxbrew ] ; then
   # temporary until https://github.com/Homebrew/homebrew/issues/45954
   # is resolved in both homebrew and linuxbrew
-  brew install https://raw.githubusercontent.com/ahundt/linuxbrew/f3158287defedf2067d701af13f586997a244256/Library/Formula/boost.rb --c++11  $OSPARAM
+  brew install https://raw.githubusercontent.com/ahundt/linuxbrew/robone/Library/Formula/boost.rb --c++11  $OSPARAM
 else
   brew install boost --c++11 $OSPARAM
 fi
