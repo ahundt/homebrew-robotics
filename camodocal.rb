@@ -11,6 +11,7 @@ class Camodocal < Formula
   #sha256 ""
 
   depends_on "cmake"        => :build
+  depends_on "openblas"     => :recommended
   depends_on "suite-sparse" => :required
   depends_on "eigen"        => :required
   depends_on "gflags"       => :recommended
