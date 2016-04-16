@@ -11,7 +11,8 @@ class RoboneTracker < Formula
   option "docs", "build docs"
   depends_on "cmake" => :build
   depends_on "cmake-basis" => :build
-  depends_on "opencv3"
+  depends_on "opencv"  => :recommended
+  depends_on "opencv3" => :optional
   depends_on "flatbuffers"
   depends_on "boost"
   depends_on "eigen"
@@ -46,6 +47,12 @@ class RoboneTracker < Formula
       -DBASIS_DIR=#{Formula["cmake-basis"].opt_prefix}/lib/cmake/basis
     ]
 
+
+    if build.with? "opencv3"
+      cmake_args << "-DOPENCV_DIR=#{Formula["opencv3"].prefix}"
+    elsif build.with? "opencv"
+      cmake_args << "-DOPENCV_DIR=#{Formula["opencv"].prefix}"
+    end
 
     if build.with? "debug"
       cmake_args << "-DCMAKE_BUILD_TYPE=Debug"

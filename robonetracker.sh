@@ -103,8 +103,9 @@ fi
 # http://docs.nvidia.com/cuda/index.html
 #brew cask install cuda
 #brew cask install vrep
-brew install opencv3 --with-contrib --c++11 --without-python3 --without-python $OSPARAM -v # --with-cuda
-brew link opencv3 --force
+brew install opencv
+#brew install opencv3 --with-contrib --c++11 --without-python3 --without-python $OSPARAM -v # --with-cuda
+#brew link opencv3 --force
 
 # from https://github.com/ahundt/homebrew-robotics
 # robotics related libraries
