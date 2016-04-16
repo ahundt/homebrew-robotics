@@ -3,7 +3,7 @@ class Grl < Formula
 
   homepage "https://github.com/ahundt/grl"
   url "https://github.com/ahundt/grl.git", :using => :git, :branch => "master"
-  version "2.0.1"
+  version "3.0.0"
   homepage "https://github.com/ahundt/grl"
 
   option "with-debug","build library with debug symbols enabled"
