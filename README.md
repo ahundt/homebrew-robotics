@@ -48,7 +48,7 @@ brew install Caskroom/cask/vrep
 
 1. Setup brew for OS X or Linux
     - [Homebrew OS X setup instructions](http://brew.sh/) or paste `ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"` into the terminal
-    - [Linuxbrew setup instructions](http://brew.sh/linuxbrew/), or paste `bash <(curl -fsSL https://raw.githubusercontent.com/ahundt/homebrew-robotics/master/linuxbrew.sh)` into the terminal
+    - [Linuxbrew setup instructions](http://linuxbrew.sh/), or paste `ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/linuxbrew/go/install)"` into the terminal
 2. Linux only - add linuxbrew to your `~/.bashrc` or ~/.zshrc:
     export PKG_CONFIG_PATH="/usr/bin/pkg-config:$HOME/.linuxbrew/bin/pkg-config"
     export PKG_CONFIG_LIBDIR="/usr/lib/pkgconfig:$HOME/.linuxbrew/lib/pkgconfig"
