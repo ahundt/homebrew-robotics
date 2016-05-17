@@ -1,8 +1,8 @@
 class Eigen3topython < Formula
   desc "C++ Convex Hull Implementation and computation algorithms"
   homepage "https://github.com/jorisv/Eigen3ToPython"
-  url  "https://github.com/ahundt/Eigen3ToPython.git", :branch => "master"
-  head "https://github.com/ahundt/Eigen3ToPython.git"
+  url  "https://github.com/jorisv/Eigen3ToPython.git", :branch => "master"
+  head "https://github.com/jorisv/Eigen3ToPython.git"
   version "0.01"
 
   depends_on "cmake" => :build
