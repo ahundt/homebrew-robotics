@@ -1,4 +1,4 @@
-class Eigen3ToPython < Formula
+class Eigen3topython < Formula
   desc "C++ Convex Hull Implementation and computation algorithms"
   homepage "https://github.com/jorisv/Eigen3ToPython"
   url  "https://github.com/jorisv/Eigen3ToPython.git", :branch => "master"
