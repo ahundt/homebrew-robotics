@@ -1,7 +1,7 @@
 class Spacevecalg < Formula
   desc "Implementation of spatial vector algebra with the Eigen3 linear algebra library"
   homepage "https://github.com/jorisv/SpaceVecAlg"
-  url  "https://github.com/jorisv/SpaceVecAlg.git", :branch => "default"
+  url  "https://github.com/jorisv/SpaceVecAlg.git", :branch => "master"
   head "https://github.com/jorisv/SpaceVecAlg.git"
   version "0.1"
 
