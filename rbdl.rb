@@ -2,7 +2,7 @@ class Rbdl < Formula
   desc "RBDL - Rigid Body Dynamics Library"
   homepage "https://bitbucket.org/rbdl/rbdl"
   url  "https://bitbucket.org/rbdl/rbdl", :using => :hg, :branch => "default"
-  head "https://bitbucket.org/rbdl/rbdl"
+  head "https://bitbucket.org/rbdl/rbdl", :using => :hg
   version "2.2.0"
 
   depends_on "cmake" => :build
