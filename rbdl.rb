@@ -10,10 +10,14 @@ class Rbdl < Formula
   depends_on "unittest-cpp"  => :recommended
 
   def install
-    cmake_args = std_cmake_args
-
-    system "cmake", ".", *cmake_args
-    system "make", "install"
+    cmake_args = std_cmake_args + %W[
+    ]
+    
+    mkdir "build" do
+      system "cmake", "-G", "Unix Makefiles", "..", *cmake_args
+      system "make"
+      system "make", "install"
+   end
   end
 
   test do
