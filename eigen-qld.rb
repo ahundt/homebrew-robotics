@@ -1,4 +1,4 @@
-class Eigenqld < Formula
+class EigenQld < Formula
   desc "Use the QLD QP solver with the Eigen3 library"
   homepage "https://github.com/jorisv/eigen-qld"
   url  "https://github.com/jorisv/eigen-qld.git", :branch => "master"
