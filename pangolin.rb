@@ -9,10 +9,10 @@ class Pangolin < Formula
   depends_on "boost"
   depends_on "glew"
   depends_on "eigen" => :recommended
-  depends_on "libuvc" => :recommended
   depends_on "libdc1394" => :recommended
   depends_on "openni2" => :recommended
   depends_on "openni" => :optional
+  depends_on "libuvc" => :optional # 2016-05-18: this requires `brew install libuvc --HEAD`
   
 
   def install
