@@ -1,5 +1,5 @@
 class UrModernDriver < Formula
-  desc "C++ language binding library integrating ZeroMQ with Boost Asio"
+  desc "Driver for the UR3/UR5/UR10 robot arms from universal robots"
   homepage "https://github.com/ThomasTimm/ur_modern_driver/"
   url  "https://github.com/ahundt/ur_modern_driver.git", :branch => "master"
   head "https://github.com/ahundt/ur_modern_driver.git"
