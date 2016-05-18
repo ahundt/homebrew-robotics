@@ -2,7 +2,7 @@ class Pangolin < Formula
   desc "realOpenGL display, interaction and abstracting video input"
   homepage "https://github.com/stevenlovegrove/Pangolin"
   url  "https://github.com/stevenlovegrove/Pangolin.git", :branch => "master"
-  head "https://github.com/stevenlovegrove/Pangolin.git"
+  head "https://github.com/stevenlovegrove/Pangolin.git", :branch => "devel"
   version "0.3"
 
   depends_on "cmake" => :build
