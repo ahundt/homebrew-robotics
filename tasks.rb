@@ -1,8 +1,8 @@
 class Tasks < Formula
   desc "Model Rigid Body Dynamics Algorithms"
-  homepage "https://github.com/jorisv/RBDyn"
-  url  "https://github.com/jorisv/RBDyn.git", :branch => "master"
-  head "https://github.com/jorisv/RBDyn.git"
+  homepage "https://github.com/jorisv/Tasks"
+  url  "https://github.com/jorisv/Tasks.git", :branch => "master"
+  head "https://github.com/jorisv/Tasks.git"
   version "0.1"
 
   depends_on "cmake" => :build
