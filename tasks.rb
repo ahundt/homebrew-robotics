@@ -9,11 +9,15 @@ class Tasks < Formula
   depends_on "eigen"
   depends_on "boost"
   depends_on "spacevecalg"
+  depends_on "rbdyn"
+  depends_on "sch-core"
+  depends_on "eigen-qld"
   depends_on "eigen3topython" => :recommended
   
 
   def install
     cmake_args = std_cmake_args + %W[
+      -DBoost_DIR=#{Formula["boost"].opt_prefix}
     ]
     
     mkdir "build" do
