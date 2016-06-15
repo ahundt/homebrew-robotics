@@ -1,8 +1,8 @@
 class CmakeBasis < Formula
   desc "cmake build and installer generation tools"
-  homepage "http://opensource.andreasschuh.com/cmake-basis/"
-  url "https://github.com/schuhschuh/cmake-basis.git", :using => :git, :tag => "v3.2.0"
-  version "3.2"
+  homepage "https://cmake-basis.github.io"
+  url "https://github.com/cmake-basis/BASIS.git", :using => :git, :tag => "v3.3.0"
+  version "3.3"
   #sha256 ""
 
   option "without-project-tool","Don't include the app 'basisproject' which helps generate and update projects"
