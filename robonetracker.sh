@@ -76,16 +76,7 @@ fi
 brew tap homebrew/science
 brew install cmake --with-docs  $OSPARAM
 brew install doxygen flatbuffers  $OSPARAM
-
-# install boost
-if [ -d $HOME/.linuxbrew ] ; then
-  # temporary until https://github.com/Homebrew/homebrew/issues/45954
-  # is resolved in both homebrew and linuxbrew
-  brew install https://raw.githubusercontent.com/ahundt/linuxbrew/robone/Library/Formula/boost.rb --c++11  $OSPARAM
-else
-  brew install boost --c++11 $OSPARAM
-fi
-# brew install pcl --with-qt5 --with-openni2 --with-examples
+brew install boost  $OSPARAM
 
 
 
