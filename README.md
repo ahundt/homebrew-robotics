@@ -1,6 +1,6 @@
 # homebrew-robotics
 
-A collection of [homebrew formulae](https://brew.sh) which install tools for use in the field of robotics.
+[Homebrew](https://brew.sh) formulae to automatically install tools for use in the fields of Robotics, Machine Learning, and Computer Vision.
 
 ## OS X Quick Setup
 

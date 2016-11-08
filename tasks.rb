@@ -1,5 +1,5 @@
 class Tasks < Formula
-  desc "Robotics library for real time control of kinematics trees with constrained optimization"
+  desc "Tasks is library for real time control of robots and kinematic trees using constrained optimization."
   homepage "https://github.com/jrl-umi3218/Tasks"
   url  "https://github.com/jrl-umi3218/Tasks.git", :branch => "master"
   head "https://github.com/jrl-umi3218/Tasks.git"
