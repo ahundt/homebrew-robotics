@@ -1,4 +1,4 @@
-class libfreenect2pclgrabber < Formula
+class Libfreenect2pclgrabber < Formula
   desc "C++ language binding library integrating ZeroMQ with Boost Asio"
   homepage "https://github.com/giacomodabisias/libfreenect2pclgrabber"
   url  "https://github.com/giacomodabisias/libfreenect2pclgrabber.git", :branch => "master"
