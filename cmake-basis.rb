@@ -10,8 +10,7 @@ class CmakeBasis < Formula
   option "with-perl", "Include the perl module"
   option "with-perl-utilities", "Include perl standardized command line utilities"
   option "with-python-utilities", "Include python standardized command line utilities"
-  depends_on "cmake" => ['docs'] if  build.with?('docs')
-  depends_on "cmake" => :required if !build.with?('docs')
+  depends_on "cmake" => :build
   depends_on "doxygen" => :recommended
   depends_on :python => :required
   #depends_on :jython => :optional

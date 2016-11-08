@@ -6,6 +6,7 @@ class Spacevecalg < Formula
   version "0.1"
 
   depends_on "cmake" => :build
+  depends_on "pybindgen" => :python
   depends_on "doxygen" => :recommended
   depends_on "eigen"
   depends_on "boost"
