@@ -8,7 +8,7 @@ class EigenQld < Formula
   depends_on "cmake" => :build
   depends_on "eigen"
   depends_on "boost"
-  depends_on "gcc" # includes gfortran
+  depends_on "gcc" => :recommended # includes gfortran, may already be on system w/ linuxbrew
 
   def install
     cmake_args = std_cmake_args + %W[
