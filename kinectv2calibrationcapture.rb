@@ -1,4 +1,4 @@
-class Kinectv2CalibrationCapture < Formula
+class Kinectv2calibrationcapture < Formula
   desc "C++ language binding library integrating ZeroMQ with Boost Asio"
   homepage "https://github.com/giacomodabisias/kinectv2CalibrationCapture"
   url  "https://github.com/giacomodabisias/kinectv2CalibrationCapture.git", :branch => "master"
