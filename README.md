@@ -1,24 +1,6 @@
 # homebrew-robotics
 
-A collection of [homebrew formulae](https://brew.sh) for use in the field of robotics.
-
-### Libraries to install once set up:
-
-#### [grl](https://github.com/ahundt/grl/) generic robotics library
-
-grl implements control of the kuka iiwa arm and integrates hand eye calibration with [vrep](http://www.coppeliarobotics.com/index.html)
-
-    brew install grl
-
-#### [cisst](https://github.com/jhu-cisst/cisst) is the JHU computer integrated surgery library
-
-    brew install cisst
-
-#### [camodocal](https://github.com/hengli/camodocal) multiple camera calibration library
-
-camodocal is a well written library with calibration of cameras and hand eye calibration. 
-
-    brew install camodocal
+A collection of [homebrew formulae](https://brew.sh) which install tools for use in the field of robotics.
 
 ## OS X Quick Setup
 
@@ -43,6 +25,26 @@ brew install Caskroom/cask/cuda
 # Coppelia robotics' vrep robot simulator
 brew install Caskroom/cask/vrep
 ```
+
+
+### Libraries to install once set up:
+
+#### [grl](https://github.com/ahundt/grl/) generic robotics library
+
+grl implements control of the kuka iiwa arm and integrates hand eye calibration with [vrep](http://www.coppeliarobotics.com/index.html)
+
+    brew install grl
+
+#### [cisst](https://github.com/jhu-cisst/cisst) is the JHU computer integrated surgery library
+
+    brew install cisst
+
+#### [camodocal](https://github.com/hengli/camodocal) multiple camera calibration library
+
+camodocal is a well written library with calibration of cameras and hand eye calibration. 
+
+    brew install camodocal
+
 
 ## Step by Step Setup for OS X and Linux
 
