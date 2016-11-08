@@ -23,16 +23,10 @@ class RoboneTracker < Formula
   depends_on "glog" # camodocal
   depends_on "gflags" # camodocal
   depends_on "homebrew/science/suite-sparse" # camodocal
+  depends_on "tasks" => :recommended
   depends_on "cisstnetlib" => :recommended
   depends_on "cisst" => :recommended
   depends_on "ur_modern_driver" => :recommended
-
-
-  featurecisst do
-
-    url "git@github.com:ahundt/robonetracker.git", :using => :git, :branch => "feature/cisst"
-
-  end
   
   head do
 
