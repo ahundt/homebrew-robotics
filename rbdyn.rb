@@ -1,8 +1,8 @@
 class Rbdyn < Formula
   desc "real-time control for kinematics trees and lists of kinematics trees"
-  homepage "https://github.com/jorisv/RBDyn"
-  url  "https://github.com/jorisv/RBDyn.git", :branch => "master"
-  head "https://github.com/jorisv/RBDyn.git"
+  homepage "https://github.com/jrl-umi3218/RBDyn"
+  url  "https://github.com/jrl-umi3218/RBDyn.git", :branch => "master"
+  head "https://github.com/jrl-umi3218/RBDyn.git"
   version "0.1"
 
   depends_on "cmake" => :build

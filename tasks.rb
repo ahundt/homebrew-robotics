@@ -1,8 +1,8 @@
 class Tasks < Formula
-  desc "Model Rigid Body Dynamics Algorithms"
-  homepage "https://github.com/jorisv/Tasks"
-  url  "https://github.com/jorisv/Tasks.git", :branch => "master"
-  head "https://github.com/jorisv/Tasks.git"
+  desc "Robotics library for real time control of kinematics trees with constrained optimization"
+  homepage "https://github.com/jrl-umi3218/Tasks"
+  url  "https://github.com/jrl-umi3218/Tasks.git", :branch => "master"
+  head "https://github.com/jrl-umi3218/Tasks.git"
   version "0.1"
 
   depends_on "cmake" => :build
