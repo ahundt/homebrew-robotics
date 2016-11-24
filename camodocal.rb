@@ -14,6 +14,8 @@ class Camodocal < Formula
   depends_on "openblas"     => :recommended
   depends_on "suite-sparse" => :required
   depends_on "eigen"        => :required
+  depends_on "metis"        => :recommended
+  depends_on "ceres-solver" => :recommended
   depends_on "gflags"       => :recommended
   depends_on "glog"         => :recommended
   depends_on "openblas"     => :recommended
