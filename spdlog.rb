@@ -1,22 +1,35 @@
 class Spdlog < Formula
-  desc "C++ language binding library integrating ZeroMQ with Boost Asio"
+  desc "Super fast C++ logging library."
   homepage "https://github.com/gabime/spdlog"
-  url  "https://github.com/gabime/spdlog.git", :tag => "v0.11.0"
+  url "https://github.com/gabime/spdlog/archive/v0.11.0.tar.gz"
+  sha256 "8c0f1810fb6b7d23fef70c2ea8b6fa6768ac8d18d6e0de39be1f48865e22916e"
   head "https://github.com/gabime/spdlog.git", :branch => "master"
-  version "0.11.0"
 
   depends_on "cmake" => :build
 
   def install
-    cmake_args = std_cmake_args + %W[
-      -DBoost_DIR=#{Formula["boost"].opt_prefix}
-    ]
+    ENV.universal_binary if build.universal?
 
-    system "cmake", ".", *cmake_args
-    system "make", "install", "-j"
+    mkdir "spdlog-build" do
+      args = std_cmake_args
+      args << "-Dpkg_config_libdir=#{lib}" << ".."
+      system "cmake", *args
+      system "make", "install"
+    end
   end
 
   test do
-    system "false"
+    (testpath/"test.cpp").write <<-EOS.undent
+      #include "spdlog/spdlog.h"
+      #include <iostream>
+      #include <memory>
+      namespace spd = spdlog;
+      int main()
+      {
+        auto console = spd::stdout_color_mt("console");
+      }
+    EOS
+    system ENV.cxx, "test.cpp", "-I#{include}/eigen3", "-o", "test"
+    assert_equal %w[], shell_output("./test").split
   end
 end
