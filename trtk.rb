@@ -8,7 +8,6 @@ class Trtk < Formula
   depends_on "cmake"        => :build
   depends_on "flann"
   depends_on "eigen"
-  depends_on "opencv"       => :recommended
 
   def install
     cmake_args = std_cmake_args + %W[
