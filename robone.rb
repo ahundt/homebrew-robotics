@@ -16,9 +16,8 @@ class Robone < Formula
   depends_on "flatbuffers"
   depends_on "boost"
   depends_on "eigen"
-  depends_on "zeromq"
-  depends_on "azmq"
   depends_on "homebrew/science/suite-sparse"
+  depends_on "ceres-solver"
   depends_on "cisstnetlib" => :recommended
   depends_on "cisst" => :recommended
   depends_on "grl"
