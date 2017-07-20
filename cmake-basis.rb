@@ -2,6 +2,7 @@ class CmakeBasis < Formula
   desc "cmake build and installer generation tools"
   homepage "https://cmake-basis.github.io"
   url "https://github.com/cmake-basis/BASIS.git", :using => :git, :tag => "v3.3.1"
+  head  "https://github.com/cmake-basis/BASIS.git", :branch => "master"
   version "3.3.1"
   #sha256 ""
 
