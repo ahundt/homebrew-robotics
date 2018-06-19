@@ -12,7 +12,7 @@ class Cisstnetlib < Formula
 
   option "with-debug","build library with debug symbols enabled"
   depends_on "cmake" => :build
-  depends_on gcc
+  depends_on "gcc" => :build
 
   def install
     # ENV.deparallelize  # if your formula fails when building in parallel
