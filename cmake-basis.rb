@@ -13,7 +13,7 @@ class CmakeBasis < Formula
   option "with-python-utilities", "Include python standardized command line utilities"
   depends_on "cmake" => :build
   depends_on "doxygen" => :recommended
-  depends_on :python => :required
+  depends_on "python@2" => :required
   #depends_on :jython => :optional
   # todo: add sphinx python dependency
   #depends_on :x11 # if your formula requires any X11/XQuartz components
@@ -31,7 +31,7 @@ class CmakeBasis < Formula
     url "https://github.com/schuhschuh/cmake-basis.git", :using => :git, :branch => "master"
 
   end
-  
+
   def install
 
     cmake_args = std_cmake_args
@@ -71,7 +71,7 @@ class CmakeBasis < Formula
     else
       cmake_args << "-DBUILD_PROJECT_TOOL=OFF"
     end
-    
+
     mkdir "build" do
       system "cmake", "-G", "Unix Makefiles", "..", *cmake_args
       system "make"

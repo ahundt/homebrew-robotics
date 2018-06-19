@@ -8,8 +8,8 @@ class Eigen3topython < Formula
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "eigen"
-  depends_on :python => :recommended if MacOS.version <= :snow_leopard
-  depends_on :python3 => :optional
+  depends_on "python@2" => :recommended if MacOS.version <= :snow_leopard
+  depends_on "python@3" => :optional
 
   def install
     cmake_args = std_cmake_args + %W[
